@@ -1,0 +1,22 @@
+Write a Python program to output a k-means clustering. Your program
+would have similar structure to the nearest means program. Follow
+the pseudocode given in the course slides. 
+
+The input to your program is a dataset and number of cluster k.
+The output is in the same format of label files we have been using
+in the course. So if the clustering is C0 = {0, 2, 3}, C1 = {1, 4}
+and C2 = {5} then the output would be
+
+0 0
+1 1
+0 2
+0 3
+1 4
+2 5
+
+Submit your assignment by copying it into the directory
+/afs/cad/courses/ccs/S19/cs/675/850/<ucid>.
+For example if your ucid is abc12 then copy your Python program into 
+/afs/cad/courses/ccs/S19/cs/675/850/abc12.
+
+Your program is due before 11:30am on 11/25/19

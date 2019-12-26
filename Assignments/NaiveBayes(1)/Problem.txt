@@ -1,0 +1,18 @@
+Write a Python program that implements the Naive Bayes classifier.
+Your program should take as input a dataset file and a set of training
+labels in the format given in the example datasets on the course website.
+As output your program should produce predicted labels for the test
+dataset which are feature vectors whose labels are not given for training. 
+
+To avoid divide by zero error that will occur when the variance is zero,
+we use the pseudocount method. In this method we initialize the mean vector
+to be some small value. So instead of initializing the mean to zero
+we set it to 0.1 for example. See the document "Naive Bayes variance pseudocount"
+in our course google drive.
+
+Submit your assignment by copying it into the directory
+/afs/cad/courses/ccs/f19/cs/675/001/<ucid>.
+For example if your ucid is abc12 then copy your solution into 
+/afs/cad/courses/ccs/f19/cs/675/001/abc12.
+
+Your completed assignment is due by 11:30am Sept 18th 2019
