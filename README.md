@@ -1,6 +1,8 @@
 # Machine_Learning_CS675
 
-Machine Learning Assignments and Project which i have done in my Masters at NJIT under Course CS675
+This Repository contain all Assignments and Project i completed during my Machine Learning Course at NJIT
+
+
 
 # Assignment 1:
 
