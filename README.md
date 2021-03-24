@@ -283,3 +283,139 @@ and C2 = {5} then the output would be
 1 4
 2 5
 
+# Project 1:
+
+In this course project we encourage you to develop your own set of methods 
+for learning and classifying. 
+
+We will test your program on the dataset provided for the project. This is 
+a simulated dataset of single nucleotide polymorphism (SNP) genotype data 
+containing 29623 SNPs (total features). Amongst all SNPs are 15 causal 
+ones which means they and neighboring ones discriminate between case and 
+controls while remainder are noise.
+
+In the training are 4000 cases and 4000 controls. Your task is to predict 
+the labels of 2000 test individuals whose true labels are known only to 
+the instructor and TA. 
+
+Both datasets and labels are immediately following the link for this
+project file. The training dataset is called traindata.gz (in gzipped
+format), training labels are in trueclass, and test dataset is called
+testdata.gz (also in gzipped format).
+
+You may use cross-validation to evaluate the accuracy of your method and for 
+parameter estimation. The winner would have the highest accuracy in the test 
+set with the fewest number of features.
+
+Your project must be in Python. You cannot use numpy or scipy except for numpy 
+arrays as given below. You may use the support vector machine, logistic regression, 
+naive bayes, linear regression and dimensionality reduction modules but not the 
+feature selection ones. These classes are available by importing the respective 
+module. For example to use svm we do
+
+from sklearn import svm
+
+You may also make system calls to external C programs for classification
+such as svmlight, liblinear, fest, and bmrm.
+
+Memory issues:
+
+One challenge with this project is the size of the data and loading it into 
+RAM. Floats and numbers take up more than 4 bytes in Python because 
+everything is really an object (a struct in C) that contain other 
+information besides the value of the number. To reduce the space we can use 
+the array class of Python.
+
+Type 
+
+from array import array
+
+in the beginning of your program. Suppose we have a list of n float called 
+l. This will take more space than 4l bytes. To make it space efficient 
+create a new array called l2 = array('f', l). The new array l2 can be 
+treated pretty much like a normal list except that it will take 4l bytes (as 
+is done in C or C++).
+
+You may also use numpy arrays for efficient storage.
+
+Your program would take as input the training dataset, the 
+trueclass label file for training points, and the test dataset. 
+The output would be a prediction of the labels of the test dataset in the 
+same format as in the class assignments. Also output the total number of 
+features and the feature column numbers that were used for final predicton. 
+If all features were used just say "ALL" instead of listing all column 
+numbers.
+
+The score of your output is measured by accuracy/(#number of features). 
+In order to qualify for full points you would need to achieve an accuracy
+of at least 63%.
+
+# Project 2:
+
+In this optional assignment we will experiment with random hyperplanes
+for classification. Your program will take a dataset as input and
+produce new features following the procedure below. The input is in
+the same format as for previous assignments.
+
+Input data matrix X: n rows, m columns
+Input training labels Y
+Input value of k
+
+For i = 0 to k do:
+	a. Create random vector w where each wj is uniformly sampled between -1 and 1.
+	
+	b. Let xj be our training data points. Determine the largest and smallest wTxj
+	across all xj. Select w0 randomly between [smallest wTxj, largest wTxj].
+
+	c. Project training data X (each row is datapoint xj) onto w. 
+	Let projection vector zi be Xw + w0 (here X has dimensions n by m and w is m by 1).
+	Append (1+sign(zi))/2 as new column to the right end of Z. Remember that zi is
+	a vector and so (1+sign(zi))/2 is 0 if the sign is -1 and 1 otherwise.
+	
+	d. Project test data X' (each row is datapoint xj) onto w. 
+	Let projection vector z'i be X'w + w0. Append (1+sign(z'i))/2 as new column to 
+	the right end of Z'. We create the test data in exactly the same way as we do
+	the training except that we do it on X' the test data instead of X the training data.
+	
+1. Run linear SVM on Z and predict on Z'
+2. Do values of k=10, 100, 1000, and 10000.
+3. How does the error compare to liblinear on original data X and X' for each k?
+
+Submit a document containing the error of linear SVM (cross-validated C) on the 
+first split of each of the six datasets on the course website. Do this on the original 
+data representation and the new representation for all values of k.
+
+Submit your program that creates features and run LinearSVC (in Python scikit)
+on the new training data and predicts on the new test data. In LinearSVC set the
+max_iter parameter to 10000 so that we do a deep search.
+
+The input to your program is the same as for the assignments: the full dataset
+plus the train labels and in addition a value k for the number of new features.
+The output of your program should be the prediction of the test data with
+cross-validated svm (for example LinearSVC) on the new data representation.
+
+# Project 3:
+
+The weekly sales transaction dataset (posted here 
+https://web.njit.edu/~usman/courses/cs675_fall19/Sales_Transactions_Dataset_Weekly.csv) 
+shows weekly sales of over 800 items across a year. Your task is to predict the 
+final week's sales from the previous values for each item in the dataset. Report 
+your mean squared error which is defined as the mean squared error of your 
+predictions 1/n(sum_i (y'i - yi)**2). The best mean squared that we achieve in this 
+dataset is about 17.5 with ridge regression applied to an LSTM encoding of the data.
+
+You may use numpy, sklearn, and pandas in your solution. Your program should 
+consider the last week 51 as the test data and prior weeks as training.
+
+Submit your program that takes as input the dataset 
+Sales_Transactions_Dataset_Weekly.csv and outputs the predictions of week 51 for 
+each item and the mean squared error.
+
+It's very important that your code does not consider the last column during training.
+If it does we will have to assign a grade of 0. If the code is too complicated to
+decipher and we cannot tell if you consider the last column we have no choice but
+to assign a 0. 
+
+To avoid such problems make it very clear in your code (with comments) that you
+are considering the data only up to week 51 in the training and that week 52 is
+clearly specified as test.
