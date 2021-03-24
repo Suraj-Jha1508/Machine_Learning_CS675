@@ -2,7 +2,7 @@
 
 Machine Learning Assignments and Project which i have done in my Masters at NJIT under Course CS675
 
-#Assignment 1:
+# Assignment 1:
 
 Write a Python program that implements the Naive Bayes classifier.
 Your program should take as input a dataset file and a set of training
@@ -16,7 +16,7 @@ to be some small value. So instead of initializing the mean to zero
 we set it to 0.1 for example. See the document "Naive Bayes variance pseudocount"
 in our course google drive.
 
-#Assignment 2:
+# Assignment 2:
 
 Write a Python program that implements gradient descent for minimizing
 the least squares loss. As a stopping condition check for the objective
@@ -65,7 +65,7 @@ and distance to origin
 
 abs(w0/||w||) = 7.77817457926694
 
-#Assignment 3:
+# Assignment 3:
 
 Write a Python program for optimizing the SVM hinge loss. 
 descent algorithm. The input and output should be the same as for
@@ -102,7 +102,7 @@ w = (1.4605574252399243, -0.4595542036671061)
 w0 = -2.0024682128830427
 Dist to origin= 1.3078203832146862
 
-#Assignment 4:
+# Assignment 4:
 
 Write a Python program for the logistic discrimination gradient
 descent algorithm. The input and output should be the same as for nearest 
@@ -170,7 +170,7 @@ w = 6.77850714487713 -1.06370810572314
 ||w||=6.86146005215591
 distance to origin = -2.60844880003425
 
-#Assignment 5:
+# Assignment 5:
 
 Modify your solution for assignments 2 and 3 to do an adaptive
 eta setting. Between the compute dellf and updatew code portions
@@ -215,7 +215,7 @@ hinge_adaptive_eta.py. Also submit your avg_test_error.pl script
 so that we can evaluate your programs on the six datasets. Don't
 forget to copy the six datasets also into your course directory.
 
-#Assignment 6:
+# Assignment 6:
 
 Write a Python program that determines the column with the
 best split for the CART decision tree algorithm. You don't
@@ -252,7 +252,7 @@ High level pseudocode:
 
     (2) Let column k give the best split s. Output k and s.
 
-#Assignment 7:
+# Assignment 7:
 Write a Python program to perform bagging on the decision 
 stump that you wrote in assignment 6.
 
@@ -265,7 +265,7 @@ your decision stump on it and obtain predictions labels.
 It will repeat this a 100 times and output the majority vote of 
 the predictions. 
 
-#Assignment 8:
+# Assignment 8:
 
 Write a Python program to output a k-means clustering. Your program
 would have similar structure to the nearest means program. Follow
